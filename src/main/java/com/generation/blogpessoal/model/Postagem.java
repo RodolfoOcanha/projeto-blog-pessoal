@@ -30,6 +30,10 @@ public class Postagem {
 	@NotBlank(message = "O atributo texto é obrigatório!")
 	@Size(min = 5, max = 1000, message = "O atributo texto deve conter no minimo 05 e no máximo 1000 caracteres")
 	private String texto;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 
 	@UpdateTimestamp
 	private LocalDateTime data;
